@@ -1,0 +1,18 @@
+version: "2"
+services:
+  backend:
+    image: manueluzcategui13/backend
+    ports:
+      - 80:3000
+    command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; npm start'
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://postgres:tubesoftPassword@db:5432/tubesoftDB
+      - PORT=3000
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=tubesoftPassword
+      - POSTGRES_DB=tubesoftDB

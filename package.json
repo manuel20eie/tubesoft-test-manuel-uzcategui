@@ -1,0 +1,1 @@
+{"nombre":"tubesoft_docker","versión":"1.0.0","descripción":"","main":"index.js","motores":{"nodo":"7.10.0"},"scripts":{"start":"node index.js"},"keywords":[],"author":"","license":"ISC","dependencies":{"express":"4.15.3","pg":"6.2.2"}}
