@@ -1,12 +1,21 @@
 const express = require("express");
-const server = express();
-const PORT = 3000;
-const pg = require("pg");
+const cors = require("cors");
+const models = require("./models");
+const result = require("dotenv").config();
+const app = express();
+const server = require("http").Server(app);
+const routes = require("./routes");
 
-var pool = new pg.Pool();
-pool.connect(function (err, client, done) {
-  done();
-});
+const corsOptions = {
+  origin: "*",
+  optionsSuccessStatus: 200,
+};
 
-server.listen(PORT, () => console.log(`Server running on ${PORT}`));
-server.get("/", (req, res) => res.status(200).send("hello"));
+app.use(cors(corsOptions));
+routes(app);
+
+models.sequelize
+  .sync({ logging: false, operatorsAliases: false, force: false })
+  .then(() => {
+    server.listen(process.env.PORT || 3000);
+  });

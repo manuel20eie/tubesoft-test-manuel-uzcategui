@@ -1,1 +1,23 @@
-{"nombre":"tubesoft_docker","versión":"1.0.0","descripción":"","main":"index.js","motores":{"nodo":"7.10.0"},"scripts":{"start":"node index.js"},"keywords":[],"author":"","license":"ISC","dependencies":{"express":"4.15.3","pg":"6.2.2"}}
+{
+  "nombre": "tubesoft_docker",
+  "versión": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "nodo": "7.10.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "watch": "nodemon --use_strict --exec node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "4.15.3",
+    "pg": "6.2.2",
+    "sequelize": "^6.6.2"
+  }
+}
