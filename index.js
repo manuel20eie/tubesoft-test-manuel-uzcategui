@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 const models = require("./models");
-const result = require("dotenv").config();
 const app = express();
 const server = require("http").Server(app);
 const routes = require("./routes");
@@ -17,5 +16,5 @@ routes(app);
 models.sequelize
   .sync({ logging: false, operatorsAliases: false, force: false })
   .then(() => {
-    server.listen(process.env.PORT || 3000);
+    server.listen(3000);
   });

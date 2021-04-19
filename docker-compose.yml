@@ -3,13 +3,12 @@ services:
   backend:
     image: manueluzcategui13/tubesoft_docker_repository
     ports:
-      - 80:3000
+      - 81:3000
     command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; npm start'
     depends_on:
       - db
     environment:
       - DATABASE_URL=postgres://tubesoftuser:tubesoftPassword@db:5432/tubesoftdb
-      - PORT=3000
   db:
     image: postgres
     environment:
